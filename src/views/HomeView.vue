@@ -1,9 +1,13 @@
 <script setup>
-import TheWelcome from '@/components/TheWelcome.vue'
+import { useCounterStore } from "../stores/counter";
+
+const counterStore = useCounterStore();
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    Counter is: {{ counterStore.counter }}
+    <button @click="counterStore.counter++">Increase</button>
+    <button @click="counterStore.$dispose()">Dispose store</button>
   </main>
 </template>
